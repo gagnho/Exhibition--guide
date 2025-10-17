@@ -1,0 +1,12 @@
+{
+  "name": "exhibition-guide",
+  "version": "1.0.0",
+  "main": "api/visitors.js",
+  "scripts": {
+    "start": "node api/visitors.js"
+  },
+  "dependencies": {
+    "mongoose": "^6.0.12",
+    "twilio": "^3.71.1"
+  }
+}
