@@ -13,11 +13,17 @@ const visitorSchema = new mongoose.Schema({
 });
 const Visitor = mongoose.models.Visitor || mongoose.model('Visitor', visitorSchema);
 
+
 // Twilio setup
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
 );
+
+// Welcome route
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to the Exhibition Visitor API!</h1><p>Use <code>/api/visitors</code> to get or increment visitor count.</p>');
+});
 
 app.get('/api/visitors', async (req, res) => {
   let visitor = await Visitor.findOne();
