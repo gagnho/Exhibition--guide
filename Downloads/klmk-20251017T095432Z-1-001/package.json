@@ -1,9 +1,9 @@
 {
   "name": "exhibition-guide",
   "version": "1.0.0",
-  "main": "api/visitors.js",
+  "main": "api/server.js",
   "scripts": {
-    "start": "node api/visitors.js"
+    "start": "node api/server.js"
   },
   "dependencies": {
     "mongoose": "^6.0.12",
