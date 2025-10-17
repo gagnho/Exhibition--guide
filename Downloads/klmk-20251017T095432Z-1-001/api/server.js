@@ -20,9 +20,14 @@ const twilioClient = twilio(
   process.env.TWILIO_AUTH_TOKEN
 );
 
-// Welcome route
+
+// Serve static files
+const path = require('path');
+app.use('/public', express.static(path.join(__dirname, '../public')));
+
+// Welcome route serves the UI
 app.get('/', (req, res) => {
-  res.send('<h1>Welcome to the Exhibition Visitor API!</h1><p>Use <code>/api/visitors</code> to get or increment visitor count.</p>');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.get('/api/visitors', async (req, res) => {

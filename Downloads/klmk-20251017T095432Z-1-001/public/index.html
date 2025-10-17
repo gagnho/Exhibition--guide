@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exhibition Welcome</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+</head>
+<body>
+  <div id="scroll-container" class="scroll-container" onclick="showHome()">
+    <div class="scroll-text">Welcome to the Exhibition! Click to continue &rarr;</div>
+  </div>
+  <div id="homepage" class="homepage" style="display:none;">
+    <h1>Exhibition Visitor Dashboard</h1>
+    <div id="parent-info" class="parent-info">
+      <span id="parent-count">Parents: ...</span><br>
+      <span id="parent-number">Your Parent Number: ...</span>
+    </div>
+    <div id="map" class="map"></div>
+  </div>
+  <script src="/public/script.js"></script>
+</body>
+</html>
