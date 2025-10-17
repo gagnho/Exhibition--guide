@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard | Exhibition</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <nav class="admin-nav">
+            <div class="nav-item active" data-tab="analytics">Analytics</div>
+            <div class="nav-item" data-tab="projects">Projects</div>
+            <div class="nav-item" data-tab="visitors">Visitors</div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </nav>
+
+        <div class="dashboard-content">
+            <!-- Analytics Section -->
+            <div id="analytics" class="tab-content active">
+                <div class="analytics-grid">
+                    <div class="stat-card">
+                        <h3>Total Visitors</h3>
+                        <p id="total-visitors">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Projects</h3>
+                        <p id="active-projects">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average Visit Duration</h3>
+                        <p id="avg-duration">0 mins</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="visitorChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Projects Management -->
+            <div id="projects" class="tab-content">
+                <div class="project-upload">
+                    <h3>Add/Edit Project</h3>
+                    <form id="projectForm">
+                        <input type="text" name="title" placeholder="Project Title" required>
+                        <textarea name="description" placeholder="Description" required></textarea>
+                        <input type="text" name="students" placeholder="Student Names (comma separated)">
+                        <input type="text" name="supervisor" placeholder="Supervisor Name">
+                        <div class="image-upload">
+                            <input type="file" name="images" multiple accept="image/*">
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                        <button type="submit">Save Project</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

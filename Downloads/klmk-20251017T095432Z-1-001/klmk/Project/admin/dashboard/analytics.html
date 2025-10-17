@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Visitors</h3>
+                <p id="total-visitors">0</p>
+                <span class="trend up">+5% today</span>
+            </div>
+            <div class="stat-card">
+                <h3>Active Projects</h3>
+                <p id="active-projects">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg. Visit Duration</h3>
+                <p id="avg-duration">0 mins</p>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Visitor Traffic</h3>
+                <canvas id="visitorChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Popular Projects</h3>
+                <canvas id="projectsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="real-time-section">
+            <h3>Real-time Activity</h3>
+            <div id="activity-feed"></div>
+        </div>
+    </div>
+    <script src="analytics.js"></script>
+</body>
+</html>

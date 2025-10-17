@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exit Point Configuration</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Configure Exit Point</h2>
+        <div id="map" style="height: 400px; margin: 20px 0;"></div>
+        <div class="coordinates-display">
+            <p>Selected Exit Point:</p>
+            <p>Latitude: <span id="selected-lat">-</span></p>
+            <p>Longitude: <span id="selected-lng">-</span></p>
+        </div>
+        <button onclick="saveExitPoint()" class="save-button">Save Exit Point</button>
+        <div id="notification" class="notification"></div>
+    </div>
+    <script>
+        let map, marker;
+        const schoolLocation = { lat: 28.5776667, lng: 77.0718707 };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: schoolLocation,
+                zoom: 19,
+                mapTypeId: 'satellite'
+            });
+
+            map.addListener('click', (e) => {
+                placeMarker(e.latLng);
+            });
+
+            // Load existing exit point if any
+            const savedPoint = localStorage.getItem('exitPoint');
+            if (savedPoint) {
+                const point = JSON.parse(savedPoint);
+                placeMarker(point);
+            }
+        }
+
+        function placeMarker(location) {
+            if (marker) {
+                marker.setMap(null);
+            }
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: 'Exit Point'
+            });
+
+            document.getElementById('selected-lat').textContent = location.lat();
+            document.getElementById('selected-lng').textContent = location.lng();
+        }
+
+        function saveExitPoint() {
+            if (!marker) {
+                showNotification('Please select an exit point on the map', 'error');
+                return;
+            }
+
+            const position = {
+                lat: marker.getPosition().lat(),
+                lng: marker.getPosition().lng()
+            };
+
+            localStorage.setItem('exitPoint', JSON.stringify(position));
+            showNotification('Exit point saved successfully!', 'success');
+        }
+
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            setTimeout(() => {
+                notification.className = 'notification';
+            }, 3000);
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
