@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/visitors.js",
+      "src": "../api/visitors.js",
       "use": "@vercel/node"
     }
   ],
