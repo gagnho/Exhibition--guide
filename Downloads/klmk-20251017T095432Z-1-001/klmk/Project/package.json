@@ -1,0 +1,22 @@
+{
+  "name": "exhibition-project",
+  "version": "1.0.0",
+  "description": "STEM Exhibition 2025",
+  "main": "Backend.js",
+  "scripts": {
+    "start": "node Backend.js",
+    "dev": "nodemon Backend.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "dotenv": "^10.0.0",
+    "express-session": "^1.17.2",
+    "connect-mongo": "^4.6.0",
+    "twilio": "^3.71.1",
+    "multer": "^1.4.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
